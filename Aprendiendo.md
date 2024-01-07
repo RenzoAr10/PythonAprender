@@ -95,8 +95,8 @@ frase = "Python es genial"
 substring1 = frase[0:5]
 print(substring1)  # Output: "Pytho"
 ```
-**metodos de string**
-***metodos de analisi**
+**metodos de string**  
+***metodos de analisis**
 ```python
 # count( ) : retorna el número de veces que se repite un conjunto de caracteres especificado.  
 "Hola mundo".count("Hola")  
@@ -116,19 +116,135 @@ print(substring1)  # Output: "Pytho"
 #isnumeric( ): determina si todos los caracteres de la cadena son números, incluye también caracteres de connotación numérica que no necesariamente son dígitos (por ejemplo, una fracción).
 "1234".isnumeric()
 >> True
-#
+#isdecimal( ): determina si todos los caracteres de la cadena son decimales; esto es, formados por dígitos del 0 al 9.
+"1234".isdecimal()
+>> True
+#isalnum( ): determina si todos los caracteres de la cadena son alfanuméricos.
+"abc123".isalnum()
+>> True
+#isalpha( ): determina si todos los caracteres de la cadena son alfabéticos.
+"abc123".isalpha()
+>> False
+#islower( ): determina si todos los caracteres de la cadena son minúsculas.
+"abcdef".islower()
+>> True
+#isupper( ): determina si todos los caracteres de la cadena son mayúsculas.
+"ABCDEF".isupper()
+>> True
+#isspace( ): determina si todos los caracteres de la cadena son espacios.
+"Hola mundo".isspace()
+>> False
+```
+***metodos de transformacion***
+En realidad los strings son inmutables; por ende, todos los métodos a continuación no actúan sobre el objeto original sino que retornan uno nuevo.
+```python
+#capitalize( ) retorna la cadena con su primera letra en mayúscula.
+"hola mundo".capitalize()
+>> 'Hola mundo'
+#encode( ) codifica la cadena con el mapa de caracteres especificado y retorna una instancia del tipo bytes.
+"Hola mundo".encode("utf-8")
+>> b'Hola mundo'
+#replace( ) reemplaza una cadena por otra.
+"Hola mundo".replace("mundo","world")
+>> 'Hola world'
+#lower( ) retorna una copia de la cadena con todas sus letras en minúsculas.
+"Hola Mundo!".lower()
+>> 'hola mundo!'
+#upper( ) retorna una copia de la cadena con todas sus letras en mayúsculas.
+#swapcase( ) cambia las mayúsculas por minúsculas y viceversa.
+#strip( ), lstrip( ) y rstrip( ) remueven los espacios en blanco que preceden y/o suceden a la cadena.
+" Hola mundo! ".strip()
+>> 'Hola mundo!'
+#Los métodos center( ), ljust( ) y rjust( ) alinean una cadena en el centro, la izquierda o la derecha. Un segundo argumento indica con qué caracter se  
+#deben llenar los espacios vacíos (por defecto un espacio en blanco).
+"Hola".center(10,"*")
+>> '***Hola***'
+```
+***metodos de transformacion***   
+```python
+#split( ) divide una cadena según un caracter separador (por defecto son espacios en blanco). Un segundo argumento en split( ) indica cuál es el
+#máximo de divisiones que puede tener lugar (-1 por defecto para representar una cantidad ilimitada).
+"Hola mundo!\nHello world!".split()
+>> ['Hola','mundo!','Hello','world!']
+#splitlines( ) divide una cadena con cada aparición de un salto de línea.
+"Hola mundo!\nHello world!".splitlines()
+>> ['Hola mundo!','Hello world!']
+#partition( ) retorna una tupla de tres elementos: el bloque de caracteres anterior a la primera ocurrencia del separador, el separador mismo, y el bloque posterior.
+"Hola mundo. Hello world!".partition(" ")
+>> ('Hola',' ','mundo. Hello world!')
+#rpartition( ) opera del mismo modo que el anterior, pero partiendo de derecha a izquierda.
+"Hola mundo. Hello world!".rpartition(" ")
+>> ('Hola mundo. Hello',' ','world!')
+#join( ) debe ser llamado desde una cadena que actúa como separador para unir dentro de una misma cadena resultante los elementos de una lista.
+",".join(["C","C++","Python","Java"])
+>> 'C, C++, Python, Java'
+```
+**Propiedades**   
+son inmutables: una vez creados, no pueden modificarse sus partes,pero sí pueden reasignarse los valores de las variables a través de métodos de strings
 
-#
+concatenable: es posible unir strings con el símbolo +
 
-#
+multiplicable: es posible concatenar repeticiones de un string con elsímbolo *
 
+multilineales: pueden escribirse en varias líneas al encerrarse entretriples comillas simples (''' ''') o dobles (""" """)
 
+determinar su longitud: a través de la función len(mi_string)
 
+verificar su contenido: a través de las palabras clave in y not in. Elresultado de esta verificación es un booleano (True / False).
 
-
-
-
+**listas**
+```python
+#indexado: podemos acceder a los elementos de una lista a través de sus índices [inicio:fin:paso]
+print(lista_1[1:3])
+>> ["C++","Python"]
+#cantidad de elementos: a través de la propiedad len( )
+print(len(lista_1))
+>> 4
+#concatenación: sumamos los elementos de varias listas con el símbolo +
+#función append( ): agrega un elemento a una lista en el lugar
+#función pop( ): elimina un elemento de la lista dado el índice, y devuelve el valor quitado
+#función sort( ): ordena los elementos de la lista en el lugar
+#función reverse( ): invierte el orden de los elementos en el lugar
 
 ```
+**sets**
+mi_set_a = {1, 2,"tres"}           mi_set_b = {3,"tres"}
 
+```python
+#add(item) agrega un elemento al set
+#clear( ) remueve todos los elementos de un set
+#copy( ) retorna una copia del set
+mi_set_c = mi_set_a.copy()
+print(mi_set_c)
+>> {1, 2,"tres"}
+#difference(set) retorna el set formado por todos los elementos que únicamente existen en el set A
+mi_set_c = mi_set_a.difference(mi_set_b)
+print(mi_set_c)
+>> {1, 2}
+#difference_update(set) remueve de A todos los elementos comunes a A y B
+#discard(item) remueve un elemento del set
+#intersection(set) retorna el set formado por todos los elementos que existen en A y B simultáneamente.
+#intersection_update(set) mantiene únicamente los elementos comunes a A y B
+#isdisjoint(set) devuelve True si A y B no tienen elementos en común
+#issubset(set) devuelve True si todos los elementos de B están presentes en A
+#issuperset(set) devuelve True si A contiene todos los elementos de B
+#pop( ) elimina y retorna un elemento al azar del set
+#remove(item) elimina un item del set, y arroja error si no existe
+#symmetric_difference(set) retorna todos los elementos de A y B, excepto aquellos que son comunes a los dos
+mi_set_c = mi_set_b.symmetric_difference(mi_set_a)
+print(mi_set_c)
+>> {1, 2, 3}
+#symmetric_difference_update(set) elimina los elementos comunes a A y B, agregando los que no están presentes en ambos a la vez
+mi_set_b.symmetric_difference_update(mi_set_a)
+print(mi_set_b)
+>> {1, 2, 3}
+#union(set) retorna un set resultado de combinar A y B (los datos duplicados se eliminan)
+mi_set_c = mi_set_a.union(mi_set_b)
+print(mi_set_c)
+>> {1, 2, 3,'tres'}
+#update(set) inserta en A los elementos de B
+mi_set_a.update(mi_set_b)
+print(mi_set_a)
+>> {1, 2, 3,'tres'}
 
+```
