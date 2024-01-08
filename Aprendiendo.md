@@ -160,7 +160,7 @@ En realidad los strings son inmutables; por ende, todos los métodos a continuac
 "Hola".center(10,"*")
 >> '***Hola***'
 ```
-***metodos de transformacion***   
+***metodos de separacion***   
 ```python
 #split( ) divide una cadena según un caracter separador (por defecto son espacios en blanco). Un segundo argumento en split( ) indica cuál es el
 #máximo de divisiones que puede tener lugar (-1 por defecto para representar una cantidad ilimitada).
@@ -208,7 +208,7 @@ print(len(lista_1))
 
 ```
 **sets**
-mi_set_a = {1, 2,"tres"}           mi_set_b = {3,"tres"}
+mi_set_a = {1, 2,"tres"}    .  .   .   .       mi_set_b = {3,"tres"}
 
 ```python
 #add(item) agrega un elemento al set
@@ -247,4 +247,27 @@ mi_set_a.update(mi_set_b)
 print(mi_set_a)
 >> {1, 2, 3,'tres'}
 
+```
+# Funciones   
+***argumentos indefinidos**   
+Puedes usar *args para permitir que una función acepte un número variable de argumentos posicionales.
+```python
+def ejemplo(*args):
+    for arg in args:
+        print(arg)
+
+ejemplo(1, 2, 3, "cuatro", [5, 6]) # imprime: 1 2 3 "cuatro" [5, 6]
+```
+Puedes usar **kwargs para permitir que una función acepte un número variable de argumentos con nombre (clave-valor).   
+```python
+def ejemplo_con_nombre(**kwargs):
+    for clave, valor in kwargs.items():
+        print(f"{clave}: {valor}")
+
+ejemplo_con_nombre(nombre="Juan", edad=25, ciudad="Ejemploville")
+>> nombre:Juan edad:25 ciudad:Ejemploville
+
+# para argumentos de diferentes tipos   
+def prueba (num1, num2, *args, **kwargs): #seguir ese orden 
+    
 ```
