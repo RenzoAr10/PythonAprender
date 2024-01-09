@@ -353,6 +353,7 @@ ruta_windows= PureWindowsPath(ruta)
 print(ruta_windows) # Imprime: C:\xampp\htdocs\Python\01\prueba.txt
 ```
 ### Path
+
 ```python
 from pathlib import Path
 
@@ -366,3 +367,28 @@ print(guia.parent) #C:\Users\HP\Barcelona\Familia
 print(guia.parent.parent) #C:\Users\HP\Barcelona
 ```
 <img src="https://github.com/RenzoAr10/PythonAprender/blob/main/Documentos/Screenshot_27.png" alt="Texto alternativo" width="600">
+
+```python
+from pathlib import Path
+
+guia = Path(Path.home(),"Europa")
+for txt in Path(guia).glob("*.txt"):
+    print(txt)
+# C:\Users\HP\Europa\Consejos.txt
+# C:\Users\HP\Europa\Normativas.txt
+
+for txt in Path(guia).glob("**/*.txt"):
+    print(txt)
+# C:\Users\HP\Europa\Consejos.txt
+# C:\Users\HP\Europa\Normativas.txt
+# C:\Users\HP\Europa\España\Barcelona\LaPedrera.txt
+# C:\Users\HP\Europa\España\Barcelona\SagradaFamilia.txt
+# C:\Users\HP\Europa\España\Madrid\MuseoDelPrado.txt
+# C:\Users\HP\Europa\Francia\Paris\TorreEiffel.txt
+
+guia2=Path("Europa","España", "Barcelona","SagradaFamilia.txt")
+en_europa=guia2.relative_to(Path("Europa"))
+en_espania=guia2.relative_to(Path("Europa","España"))
+print(en_europa) # España\Barcelona\SagradaFamilia.txt
+print(en_espania) # Barcelona\SagradaFamilia.txt
+```
