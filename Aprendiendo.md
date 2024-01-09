@@ -271,3 +271,98 @@ ejemplo_con_nombre(nombre="Juan", edad=25, ciudad="Ejemploville")
 def prueba (num1, num2, *args, **kwargs): #seguir ese orden 
     
 ```
+# Manipular archivos
+```python
+a = open("C:\\xampp\\htdocs\\Python\\01\\prueba.txt")
+print(a.read())
+a.close()
+>>renzo
+>>aldave
+>>reyes
+```
+### Para escribir en un archivo desde Python, deberemos elegir con cuidado el parámetro "modo de apertura"    
+open(arhivo, modo)   
+  
+***"r"*** - Read (Lectura) - Predeterminado. Permite leer pero no escribir, y arroja un error si el archivo no existe.   
+***"a"*** - Append (Añadir) - Abre el archivo para añadir líneas a continuación de la última que ya exista en el mismo. Crea un archivo en caso de que el mismo no exista.   
+***"w"*** - Write (Escritura) - Abre o crea un archivo (si no existe previamente) en modo de escritura, lo que significa que cualquier contenido previo se sobreescribirá.  
+***"x"*** - Create (Creación) - Crea un archivo, y arroja un error si el mismo ya existe en el directorio.  
+ejemplos  
+```python
+archivo = open("C:\\xampp\\htdocs\\Python\\01\\prueba.txt","r")
+print(archivo.read())
+archivo.close()
+
+archivo = open("C:\\xampp\\htdocs\\Python\\01\\prueba.txt","w")
+archivo.write('''hola
+mundo
+aqui
+estoy''')
+archivo.close()
+
+archivo = open("C:\\xampp\\htdocs\\Python\\01\\prueba.txt","w")
+lista = ['hola', 'mundo','aqui','estoy']
+for k in lista:
+    archivo.writelines(p + '\n')
+archivo.close()
+```
+### Directorios
+
+***os.getcwd():*** obtiene y devuelve el directorio de trabajo actual. Será el mismo en el que corre el programa si no se ha modificado.   
+***os.chdir(ruta):*** cambia el directorio de trabajo a la ruta especificada   
+***os.makedirs(ruta):*** crea una carpeta, así como todas las carpetas intermedias necesarias de acuerdo a la ruta especificada.   
+***os.path.basename(ruta):*** dada una ruta, obtiene el nombre del archivo (nombre de base)   
+***os.path.dirname(ruta):*** dada una ruta, obtiene el directorio (carpeta) que almacena el archivo   
+***os.path.split(ruta):*** devuelve una tupla que contiene dos elementos: el directorio, y el nombre de base del archivo.   
+***rmdir(ruta):*** elimina el directorio indicado en la ruta.   
+
+```python
+import os 
+ruta = os.getcwd()
+print(ruta)
+>>C:\xampp\htdocs\Python
+--------------------
+# Se va trabajar ahora en ese directorio
+import os 
+ruta = os.chdir('C:\\Users\\HP\\Documents\\23-2')
+archivo=open('renzito.txt')
+print(archivo.read())
+--------------------
+# Para crear un nuevo directorio 
+import os 
+ruta = os.makedirs('C:\\Users\\HP\\Documents\\23-2\\TRABAJOS')
+```
+### Path lib
+
+***read_text( ):*** lee el contenido del archivo sin necesidad de abrirlo y cerrarlo
+***name:*** devuelve el nombre y extensión del archivo
+***suffix:*** devuelve la extensión del archivo (sufijo)
+***stem:*** devuelve el nombre del archivo sin su extensión (sufijo)
+***exists( ):*** verifica si el directorio o archivo al que referencia el objeto Path existe y devuelve un booleano de acuerdo al resultado (True/False)
+```python
+from pathlib import Path
+ruta = Path("C:/xampp/htdocs/Python/01/prueba.txt")
+
+print(ruta.read_text()) #Imprime el contenido del archivo
+
+```
+```python
+from pathlib import Path,PureWindowsPath
+ruta = Path("C:/xampp/htdocs/Python/01/prueba.txt")
+ruta_windows= PureWindowsPath(ruta)
+print(ruta_windows) # Imprime: C:\xampp\htdocs\Python\01\prueba.txt
+```
+### Path
+```python
+from pathlib import Path
+
+base = Path.home()
+guia = Path(base,"Barcelona", "Familia",Path("Personas"))
+guia2 = guia.with_name("Padre")
+print(base) #C:\Users\HP
+print(guia) #C:\Users\HP\Barcelona\Familia\Personas
+print(guia2) #C:\Users\HP\Barcelona\Familia\Padre
+print(guia.parent) #C:\Users\HP\Barcelona\Familia
+print(guia.parent.parent) #C:\Users\HP\Barcelona
+```
+<img src="https://github.com/RenzoAr10/PythonAprender/blob/main/Documentos/Screenshot_27.png" alt="Texto alternativo" width="200">
