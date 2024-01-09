@@ -365,4 +365,4 @@ print(guia2) #C:\Users\HP\Barcelona\Familia\Padre
 print(guia.parent) #C:\Users\HP\Barcelona\Familia
 print(guia.parent.parent) #C:\Users\HP\Barcelona
 ```
-<img src="https://github.com/RenzoAr10/PythonAprender/blob/main/Documentos/Screenshot_27.png" alt="Texto alternativo" width="200">
+<img src="https://github.com/RenzoAr10/PythonAprender/blob/main/Documentos/Screenshot_27.png" alt="Texto alternativo" width="600">
