@@ -334,11 +334,12 @@ ruta = os.makedirs('C:\\Users\\HP\\Documents\\23-2\\TRABAJOS')
 ```
 ### Path lib
 
-***read_text( ):*** lee el contenido del archivo sin necesidad de abrirlo y cerrarlo
-***name:*** devuelve el nombre y extensión del archivo
-***suffix:*** devuelve la extensión del archivo (sufijo)
-***stem:*** devuelve el nombre del archivo sin su extensión (sufijo)
-***exists( ):*** verifica si el directorio o archivo al que referencia el objeto Path existe y devuelve un booleano de acuerdo al resultado (True/False)
+***read_text( ):*** lee el contenido del archivo sin necesidad de abrirlo y cerrarlo.   
+***name:*** devuelve el nombre y extensión del archivo.   
+***suffix:*** devuelve la extensión del archivo (sufijo).  
+***stem:*** devuelve el nombre del archivo sin su extensión (sufijo).  
+***exists( ):*** verifica si el directorio o archivo al que referencia el objeto Path existe y devuelve un booleano de acuerdo al resultado (True/False).  
+
 ```python
 from pathlib import Path
 ruta = Path("C:/xampp/htdocs/Python/01/prueba.txt")
