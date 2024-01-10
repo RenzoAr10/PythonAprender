@@ -339,6 +339,7 @@ ruta = os.makedirs('C:\\Users\\HP\\Documents\\23-2\\TRABAJOS')
 ***suffix:*** devuelve la extensión del archivo (sufijo).  
 ***stem:*** devuelve el nombre del archivo sin su extensión (sufijo).  
 ***exists( ):*** verifica si el directorio o archivo al que referencia el objeto Path existe y devuelve un booleano de acuerdo al resultado (True/False).  
+***write(contenido):*** para agregar contenido al archivo.   
 
 ```python
 from pathlib import Path
