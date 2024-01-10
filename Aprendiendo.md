@@ -394,3 +394,26 @@ en_espania=guia2.relative_to(Path("Europa","España"))
 print(en_europa) # España\Barcelona\SagradaFamilia.txt
 print(en_espania) # Barcelona\SagradaFamilia.txt
 ```
+# Programacion Orientada de Objetos
+Los atributos son variables que pertenecen a la clase. Existen atributos de clase (compartidos por todas las instancias de la clase), y de instancia (que son distintos en cada instancia de la clase).  
+
+Todas las clases tienen una función que se ejecuta al instanciarla, llamada _ _init__(), y que se utiliza para asignar valores a las propiedades del objeto que está siendo creado.    
+***self:*** representa a la instancia del objeto que se va a crear. 
+
+```python
+class pajaro :
+    alas=True
+    def __init__(self,mi_color):
+        self.color=mi_color
+
+mi_pajaro=pajaro("negro") 
+
+print(mi_pajaro.color) # negro
+print(pajaro.alas) # True
+print(mi_pajaro.alas) # True
+```
+
+
+
+
+
