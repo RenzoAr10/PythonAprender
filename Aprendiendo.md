@@ -400,20 +400,55 @@ Los atributos son variables que pertenecen a la clase. Existen atributos de clas
 Todas las clases tienen una función que se ejecuta al instanciarla, llamada _ _init__(), y que se utiliza para asignar valores a las propiedades del objeto que está siendo creado.    
 ***self:*** representa a la instancia del objeto que se va a crear. 
 
+***Tipos de metodos***
+
+<img src="https://github.com/RenzoAr10/PythonAprender/blob/main/Documentos/Screenshot_28.png" alt="Texto alternativo" width="600">
+
 ```python
 class pajaro :
-    alas=True
-    def __init__(self,mi_color):
-        self.color=mi_color
 
-mi_pajaro=pajaro("negro") 
+    alas=True
+
+    def __init__(self,mi_color,especie):
+        self.color=mi_color 
+        self.especie=especie
+
+    def piar(self):
+        print(f"pio,mi color es {self.color}")
+
+    def volar(self,metros):
+        print(f"El pajaro ha volado {metros} metros")
+        self.piar()
+
+    def pintarNegro(self):
+        self.color="Negro"
+        print(f"El pajaro es de color {self.color}")
+
+    @classmethod
+    def ponerHuevos (cls,cantidad):
+        print(f"Puso {cantidad} huevos")
+        cls.alas=False
+
+    @staticmethod
+    def mirar():
+        print("El pajaro mira")
+
+mi_pajaro=pajaro("negro","condor") 
 
 print(mi_pajaro.color) # negro
 print(pajaro.alas) # True
 print(mi_pajaro.alas) # True
+
+mi_pajaro.piar() # pio,mi color es negro
+mi_pajaro.volar(50) # El pajaro ha volado 50 metros
+#-----------------------------------------------------------------------------#
+piolin = pajaro("Amarillo","Avestruz")
+piolin.pintarNegro() #El pajaro es de color Negro
+piolin.volar(70) #El pajaro ha volado 70 metros
+                 #pio,mi color es Negro
+#----------------------------------------------------------------------
+pajaro.ponerHuevos(3) # Puso 3 huevos
+#----------------------------------------------------
+pajaro.mirar() #El pajaro mira
 ```
-
-
-
-
 
