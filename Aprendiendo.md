@@ -451,4 +451,104 @@ pajaro.ponerHuevos(3) # Puso 3 huevos
 #----------------------------------------------------
 pajaro.mirar() #El pajaro mira
 ```
+### Herencia
 
+La herencia es el proceso mediante el cual una clase puede tomar métodos y atributos de una clase superior, evitandorepetición del código cuando varias clases tienen atributos o métodos en común.
+```python
+class Personaje:
+    def __init__(self, nombre, arma):
+        self.nombre = nombre
+        self.arma = arma
+        
+class Mago(Personaje):
+    pass
+
+hechicero = Mago("Merlín","caldero")
+```
+***Herencia multiple***
+```python
+class animal:
+    def __init__(self,edad,color):
+        self.edad = edad
+        self.color = color
+
+    def nacer(self):
+        print("el animal ha nacido")
+
+    def hablar (self):
+        print("Este animal emite un sonido")
+
+class oviparo:
+    def poner(self):
+        print("Este animal pone huevos")
+
+
+class pajaro (animal,oviparo):
+    def __init__(self,edad,color,altura_vuelo):
+        self.edad = edad
+        self.color = color 
+        # super().__init__(edad,color)  
+
+        self.altura_vuelo=altura_vuelo
+
+    def hablar(self):
+        print("Pio")
+    def volar(self,metros):
+        print(f"El pajaro vuela {metros} metros")
+
+piolin = pajaro(3,"Rojo",100)
+piolin.volar(150) # El pajaro vuela 150 metros
+piolin.hablar() # Pio
+piolin.nacer() # el animal ha nacido
+print(pajaro.__mro__) #(<class '__main__.pajaro'>, <class '__main__.animal'>, <class '__main__.oviparo'>, <class 'object'>)
+```
+### Polimorfismo
+El polimorfismo es el pilar de la POO mediante el cual un mismo método puede comportarse de diferentes maneras según el objeto sobre el cual esté actuando, en función de cómo dicho método ha sido creado para la clase en particular.  
+
+```python
+class Perro:
+    def hablar(self):
+        print("Guau!")
+
+class Gato:
+    def hablar(self):
+        print("Miau!")
+
+hachiko = Perro()
+garfield = Gato()
+
+for animal in [hachiko, garfield]:
+    animal.hablar()
+#Guau!
+#Miau!
+    
+def animal_habla(animal):
+    animal.hablar()
+
+animal_habla(hachiko) # Guau!
+```
+### Metodos especiales 
+Puedes encontrarlos con el nombre de métodos mágicos o dunder methods (del inglés: dunder = double underscore, o doble guión bajo).  
+```python
+class Libro:
+
+    def __init__(self, autor, titulo, cant_paginas):
+
+        self.autor = autor
+        self.titulo = titulo
+        self.cant_paginas = cant_paginas
+
+    def __str__(self):
+
+        return f'Título: "{self.titulo}", escrito por {self.autor}'
+
+    def __len__(self):
+        return self.cant_paginas
+    
+
+libro1 = Libro("Stephen King","It", 1032)
+
+print(str(libro1)) # Título: "It", escrito por Stephen King
+print(len(libro1)) # 1032
+
+```
