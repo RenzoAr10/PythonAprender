@@ -353,6 +353,11 @@ from pathlib import Path,PureWindowsPath
 ruta = Path("C:/xampp/htdocs/Python/01/prueba.txt")
 ruta_windows= PureWindowsPath(ruta)
 print(ruta_windows) # Imprime: C:\xampp\htdocs\Python\01\prueba.txt
+#-------------------------------------------------------------------------------------
+#Se crea la carpeta 
+ruta_carpeta = Path("C:\\xampp\\htdocs\\Python\\Mis_modulos")
+ruta_carpeta.mkdir()
+
 ```
 ### Path
 
@@ -552,3 +557,27 @@ print(str(libro1)) # Título: "It", escrito por Stephen King
 print(len(libro1)) # 1032
 
 ```
+# Paquetes   
+
+En "simbolo del sistema"    
+Si ya conoces el nombre del módulo que quieres instalar, puedes obtenerlo de PyPi directamente desde la consola:  
+**pip install < modulo >**  
+También podrás actualizar los módulos que ya tengas instalados añadiendo --upgrade luego del nombre del paquete:  
+**pip install < modulo > --upgrade**
+
+### Modulos y paquetes
+
+<img src="https://github.com/RenzoAr10/PythonAprender/blob/main/Documentos/Screenshot_29.png" alt="Texto alternativo" width="500">
+
+```python
+from paquete_Fede import suma_y_resta
+
+suma_y_resta.resta(18,5) #13
+suma_y_resta.suma(15,8) #23
+
+from paquete_Fede.subpaquete import hablar
+hablar.hola() # Hola bb
+```
+### Manejo de errores
+
+
