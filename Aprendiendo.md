@@ -606,3 +606,67 @@ C:\... ruta> pylint modulo1.py -r y
 ***unittest***
 
 <img src="https://github.com/RenzoAr10/PythonAprender/blob/main/Documentos/Screenshot_30.png" alt="Texto alternativo" width="500">
+
+### Decoradores
+
+Los decoradores son patrones de diseño en Python utilizados para dar nueva funcionalidad a objetos (funciones), modificando su comportamiento sin alterar su estructura: son funciones que modifican funciones.
+
+```python
+def decorar_palabra(funcion):
+
+    def otra_funcion(palabra):
+        print("hola")
+        funcion(palabra)
+        print("adios")
+    return otra_funcion
+
+def mayuscula(texto):
+    print(texto.upper())
+
+def minuscula(texto):
+    print(texto.lower())
+
+mayuscula_decorada= decorar_palabra(mayuscula)
+mayuscula_decorada("feDe")
+# hola
+# FEDE
+# adios
+```
+### Generadores
+
+Los generadores son tipos especiales de funciones que devuelven un iterador que no almacena su contenido completo en memoria, sino que "demora" la ejecución de una expresión hasta que su valor se solicita.
+
+```python
+def mi_funcion ():
+    lista =[]
+    for i in range(1,5):
+        lista.append(i*10)
+    return lista
+
+def mi_generador ():
+    for i in range(1,5):
+        yield i * 10
+
+print(mi_funcion()) #[10, 20, 30, 40]
+print(mi_generador) #<function mi_generador at 0x000001C499F1D260>
+
+g= mi_generador() 
+
+print(next(g)) #10
+print(next(g)) #20
+
+#-----------------------------------------------------------------
+        
+def otro_generador():
+    x=1
+    yield x
+    x+=1
+    yield x
+    x+=1
+    yield x
+
+p=otro_generador()
+print(next(p)) # 1
+print(next(p)) # 2
+print(next(p)) # 3
+```
