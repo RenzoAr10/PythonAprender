@@ -579,5 +579,30 @@ from paquete_Fede.subpaquete import hablar
 hablar.hola() # Hola bb
 ```
 ### Manejo de errores
+```python
+try:
+    # Código que podría generar una excepción
+    resultado = 10 / 0  # Intentando dividir por cero
+except ZeroDivisionError as e:
+    # Manejo específico para la excepción ZeroDivisionError
+    print(f"Error: {e}")
+except Exception as e:
+    # Manejo de otras excepciones
+    print(f"Otro error: {e}")
+else:
+    # Código que se ejecuta si no se produce ninguna excepción en el bloque try
+    print("Operación exitosa.")
+finally:
+    # Código que se ejecuta siempre, independientemente de si se produce una excepción o no
+    print("Finalizando...")
+```
+***pylint***   
 
+Pylint es un verificador de código, errores y calidad para Python, siguiendo el estilo recomendado por PEP 8, la guía de estilo de Python. Es de gran utilidad en el trabajo en equipo. Python TOTAL
 
+***pip install pylint***   
+C:\... ruta> pylint modulo1.py -r y
+
+***unittest***
+
+<img src="https://github.com/RenzoAr10/PythonAprender/blob/main/Documentos/Screenshot_30.png" alt="Texto alternativo" width="500">
