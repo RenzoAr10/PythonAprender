@@ -744,4 +744,172 @@ for carpeta,subcarpeta, archivo in os.walk(ruta):
     print("\n")
 
 ```
+### Modulo datetime 
 
+```python
+import datetime
+miHora = datetime.time(17,35)
+print(miHora) # 17:35:00
+print(miHora.hour) # 17 
+
+miDia = datetime.date(2025,10,17)
+print(miDia) # 2025-10-17
+print(miDia.ctime()) # Fri Oct 17 00:00:00 2025
+
+print(miDia.today()) #Fecha actual 2024-01-13
+
+from datetime import datetime
+miFecha = datetime(2025,5,17,22,10,15,2000)
+print(miFecha) # 2025-05-17 22:10:15.002000
+miFecha = miFecha.replace(month=11)
+print(miFecha) # 2025-11-17 22:10:15.002000
+
+despierta = datetime(2022,10,16,7,30)
+duerme = datetime(2022,10,16,23,50)
+vigilia = duerme - despierta
+print(vigilia) # 16:20:00
+
+
+from datetime import date
+nacimiento = date ( 1997,10,17)
+defuncion = date (2029,12,16)
+vida = defuncion-nacimiento
+print(vida) # 11748 days, 0:00:00
+
+```
+### Time 
+```python
+import time 
+inicio = time.time()
+[código]
+final = time.time()
+duracion = final - inicio # mide el tiempo, no es exacto para valores pequeños 
+#--------------------------------------------------------------------------
+import timeit
+
+def  prueba_while ():
+    pass
+
+declaracion = """prueba_while (10)"""
+mi_setup ="""
+def  prueba_while ():
+    pass
+"""
+
+tiempo = timeit.timeit(declaracion,mi_setup,number=1000000)
+```
+### Modulo Math
+
+Funciones trigonométricas (sin(), cos(), tan()).   
+Funciones exponenciales y logarítmicas (exp(), log(), log10()).   
+Funciones de redondeo (ceil(), floor()).  
+Constantes matemáticas como pi (math.pi).  
+```python
+import math
+
+# Calcular el seno de 30 grados
+seno_30 = math.sin(math.radians(30))
+print(seno_30)
+
+# Calcular el logaritmo natural de 2
+logaritmo_2 = math.log(2)
+print(logaritmo_2)
+
+# Imprimir el valor de pi
+print(math.pi)
+
+```
+### Modulo Numpy
+
+Es una biblioteca externa de Python que proporciona soporte para arrays multidimensionales y funciones matemáticas avanzadas. Es especialmente útil para operaciones numéricas y computacionales, y es ampliamente utilizado en el ámbito de la ciencia de datos y la computación científica.
+```python
+import numpy as np
+
+# Crear un array de una dimensión
+arr = np.array([1, 2, 3, 4, 5])
+
+# Calcular la media y la desviación estándar del array
+media = np.mean(arr)
+desviacion_estandar = np.std(arr)
+
+print("Media:", media)
+print("Desviación estándar:", desviacion_estandar)
+
+```
+### Modulo RE
+
+<img src="https://github.com/RenzoAr10/PythonAprender/blob/main/Documentos/Screenshot_31.png" alt="Texto alternativo" width="800">
+
+```python
+import re
+
+texto = "La expresión regular en Python es poderosa.Python"
+patron = "Python"
+
+resultado = re.search(patron, texto)
+
+print("Encontrado:", resultado.group()) # Encontrado: Python
+print(resultado.span()) # (24, 30)
+
+resultado2=re.findall(patron,texto)
+print(resultado2) # ['Python', 'Python']
+
+#-----------------------------------------------------
+
+texto2= 'llama al 978-789-7458 ya mismo'
+patron2=r'\d\d\d-\d\d\d-\d\d\d\d'
+resultado3= re.search(patron2,texto2)
+print(resultado3) # <re.Match object; span=(9, 21), match='978-789-7458'
+
+#------------------------------------------------------
+tex = "No atendemos los martes en la tarde"
+buscar = re.search(r'lunes|martes',tex)
+print(buscar) # <re.Match object; span=(17, 23), match='martes'>
+
+buscar = re.search(r'....demos...',tex)
+print(buscar) # <re.Match object; span=(3, 15), match='atendemos lo'>
+
+tex2 = "4No atendemos los martes en la tarde8"
+buscar = re.search(r'^\D',tex2)
+print(buscar) # None
+
+buscar = re.search(r'\D$',tex2)
+print(buscar) # None
+
+buscar = re.findall(r'[^\s]',tex) # excluye los q no son espacion en blanco
+print(buscar) # ['N', 'o', 'a', 't', 'e', 'n', 'd', 'e', 'm', 'o', ...]
+
+buscar = re.findall(r'[^\s]+',tex) # excluye los q no son espacion en blanco
+print(buscar) # ['No', 'atendemos', 'los', 'martes', 'en', 'la', 'tarde']
+print(' '.join(buscar)) # No atendemos los martes en la tarde
+```
+### Comprimir y descomprimir archivos 
+
+```python
+
+import zipfile
+# Para pasar archivos a la carpeta comprimida
+mi_zip = zipfile.ZipFile('carpeta_comprimida.zip','w')
+
+mi_zip.write('texto_A.txt')
+mi_zip.write('texto_B.txt')
+
+mi_zip.close()
+-----------------------------------------
+
+# Para extraer los archivos de la carpeta
+zip_abierto = zipfile.ZipFile('carpeta_comprimida.zip','r')
+zip_abierto.extractall()
+
+----------------------------------------------
+import shutil
+
+carpeta_origen = 'C:\\ruta de la carpeta para usar sus archivos a comprimir'
+archivo_destino = 'Nombre de la carpeta comprimida'
+shutil.make_archive(archivo_destino,'zip',carpeta_origen)
+------------------------------------------------
+import shutil
+# descomprimir de una a otra carpeta 
+shutil.unpack_archive('la carpeta comprimida.zip','Nombre de la extraccion','zip')
+
+```
