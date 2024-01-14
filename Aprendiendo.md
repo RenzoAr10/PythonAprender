@@ -670,3 +670,78 @@ print(next(p)) # 1
 print(next(p)) # 2
 print(next(p)) # 3
 ```
+# Collections 
+
+### collections
+***Counters (Contadores):*** Es una subclase del diccionario, usado para contar las repeticiones de cada elemento en un iterable, en forma de diccionario.  
+***DefaultDict:*** Es una subclase del diccionario, usado para proporcionar valores por defecto para las claves que no existan, sin generar un mensaje de error. El valor por defecto puede ser un tipo de dato (int, list, etc.) o una función lambda que proporcione dicho valor directamente (lambda:"mi valor").  
+***NamedTuple:*** devuelve una tupla donde las posiciones de sus elementos tienen un nombre, además de un número de índice como las tuplas tradicionales.  
+
+"mi valor").
+```python
+from collections import Counter
+
+numeros = [1,1,1,2,2,3,3,3,3,5,6,6,7]
+frase = "Al pan pan y al vino vino"
+print(Counter(numeros)) # Counter({3: 4, 1: 3, 2: 2, 6: 2, 5: 1, 7: 1})
+print(Counter("missisipi")) # Counter({'i': 4, 's': 3, 'm': 1, 'p': 1})
+print(Counter(frase.split())) # Counter({'pan': 2, 'vino': 2, 'Al': 1, 'y': 1, 'al': 1})
+
+serie = Counter([1,1,1,2,2,3,3,3,3,5,6,6,7])
+print(serie.most_common()) # [(3, 4), (1, 3), (2, 2), (6, 2), (5, 1), (7, 1)]
+print(serie.most_common(1)) # [(3, 4)]
+print(list(serie)) # [1, 2, 3, 5, 6, 7]
+
+from collections import defaultdict
+
+mi_dic = {'uno':'verde', 'dos':'azul','tres':'rojo'}
+# sale error si se coloca 'cuatro'
+mi_dic = defaultdict(lambda: 'nada')
+print(mi_dic['cuatro']) # nada
+print(mi_dic) # defaultdict(<function <lambda> at 0x000002727E3004A0>, {'cuatro': 'nada'})
+
+from collections import namedtuple
+
+tupla =  namedtuple('Persona',['nombre','altura','peso'])
+persona1=tupla('Ariel',1.72,72)
+print(persona1.peso) #72
+print(persona1[1]) #1.72
+```
+### modulos OS y Shutil
+
+El módulo Shutil ofrece funcionalidades de alto nivel sobrearchivos, tales como copiar, crear, eliminar y mover entre directorios. También mencionaremos métodos del módulo os que cumplen objetivos similares.    
+***shutil.move(archivo, directorio) :*** mueve un archivo desde el directorio actual hacia aquel que se especifica en el segundo parámetro.  
+***os.unlink(directorio) :*** elimina un archivo del directorio indicado.   
+***os.rmdir(directorio) :*** elimina una carpeta vacía.    
+***shutil.rmtree(directorio) :*** elimina una carpeta indicada en el directorio, incluyendo todas sus ramificaciones (subcarpetas y archivos), de manera definitiva y sin pasar porla papelera de reciclaje.   
+***send2trash.send2trash(archivo) :*** envía un archivo a la papelera de reciclaje (es necesario instalar el módulo desde y luego importarlo).  
+***os.walk(directorio) :*** recorre el directorio indicado, y devuelve los nombres de carpetas, subcarpetas y archivos dentro de ellas en forma de tupla, a través de un generador.  
+***archivo[0].startswith("ANTES")***: compara si el archivo comienza con "ANTES"
+
+```python
+import os, shutil, send2trash
+print(os.getcwd())
+
+shutil.move('C:\\xampp\\htdocs\\Python\\cursoPython\\ejercicio.py','C:\\Users\\HP\\Desktop') 
+
+#pip install send2trash
+send2trash.send2trash('C:\\Users\\HP\\Desktop\\ejercicio.py') #archivo a papelera
+
+```
+```python
+import os, shutil, send2trash
+
+ruta='C:\\Users\\HP\\Documents\\23-2'
+
+for carpeta,subcarpeta, archivo in os.walk(ruta):
+    print(f"En la carpeta {carpeta}")
+    print("Las subcarpetas son: ")
+    for sub in subcarpeta:
+        print(f"\t{sub}")
+    print("Los archivos son: ")
+    for arch in archivo:
+        print(f"\t{arch}")
+    print("\n")
+
+```
+
