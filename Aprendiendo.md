@@ -939,5 +939,71 @@ pygame.quit()
 Para iconos: https://www.flaticon.es/   
 Para el color: https://colorspire.com/   
 
+# Web Scraping
+REGLAS: se debe tener permisos para acceder a la informacion de la pagina, sino se puede bloquear tu IP.    
+pip install beautifulsoup4   
+pip install lxml   
+pip install requests   
+
+<img src="https://github.com/RenzoAr10/PythonAprender/blob/main/Documentos/Screenshot_32.png" alt="Texto alternativo" width="600">
+
+### Extraer elementos de una clase
+```python
+import bs4, requests 
+
+resultado = requests.get('https://escueladirecta-blog.blogspot.com/2023/05/configurando-la-impresion-perfecta-de.html')
+sopa = bs4.BeautifulSoup(resultado.text,'lxml')
+
+print(sopa.select('title')) # [<title>Configurando la Impresión Perfecta de un Libro de Excel</title>] 
+print(len(sopa.select('p'))) # 37, es una lista 
+print(sopa.select('title')[0].getText()) # Configurando la Impresión Perfecta de un Libro de Excel
+
+#Extraer elementos de una clase 
+columna_lateral = sopa.select('.slide p')
+print(columna_lateral)
+
+for p in columna_lateral:
+    print(p.getText())
+    print("\n")
+```
+### Extraer imagenes 
+```python
+import bs4, requests 
+
+resultado = requests.get('https://escueladirecta.com/courses/')
+sopa = bs4.BeautifulSoup(resultado.text,'lxml')
+
+# imagenes = sopa.select('img') # Se tiene que la clase que se busca #course-box-image"
+imagenes = sopa.select('.course-box-image')[0]['src'] # Se tiene la solo la url 
+print(imagenes)
+
+imagen_curso_1 = requests.get(imagenes)
+
+f = open('mi_imagen.jpg','wb')
+f.write(imagen_curso_1.content)
+# Se crea en la carpeta "C:\xampp\htdocs\Python\mi_imagen.jpg"
+```
+### Explorar multiples paginas, identificar condiciones de extraccion y extrael titulo del libro    
+
+https://toscrape.com/
+
+```python
+import bs4, requests 
+
+url_base = 'https://books.toscrape.com/catalogue/page-{}.html'
+
+resultado = requests.get(url_base.format('1'))
+sopa = bs4.BeautifulSoup(resultado.text, 'lxml')
+
+# print(sopa.select('.product_pod')) #Una lista de 20 elementos
+print(len(sopa.select('.product_pod'))) # 20 
+
+# Extraer el titulo del libro
+libros = sopa.select('.product_pod') #toda la info de los productos en una lista
+ejemplo = libros[0].select('a')[1]['title']
+print(ejemplo) # A Light in the Attic
+
+```
+
 
 
