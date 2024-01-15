@@ -913,3 +913,31 @@ import shutil
 shutil.unpack_archive('la carpeta comprimida.zip','Nombre de la extraccion','zip')
 
 ```
+# Crear pantalla 
+
+pip install pygame
+
+### crear pantalla
+
+```python
+import pygame 
+
+pygame.init()
+
+pantalla = pygame.display.set_mode((800,600))
+
+se_ejecuta = True
+while se_ejecuta:
+    for evento in pygame.event.get():
+        if evento.type==pygame.QUIT:
+            se_ejecuta = False
+
+pygame.quit()
+```
+### Cambiar titulo, icono y color
+
+Para iconos: https://www.flaticon.es/   
+Para el color: https://colorspire.com/   
+
+
+
