@@ -870,18 +870,22 @@ buscar = re.search(r'....demos...',tex)
 print(buscar) # <re.Match object; span=(3, 15), match='atendemos lo'>
 
 tex2 = "4No atendemos los martes en la tarde8"
-buscar = re.search(r'^\D',tex2)
-print(buscar) # None
 
-buscar = re.search(r'\D$',tex2)
-print(buscar) # None
+# ^: Ancla al principio de la cadena.
+buscar = re.search(r'^\D', tex2)
+print(buscar)  # None
 
-buscar = re.findall(r'[^\s]',tex) # excluye los q no son espacion en blanco
-print(buscar) # ['N', 'o', 'a', 't', 'e', 'n', 'd', 'e', 'm', 'o', ...]
+# $: Ancla al final de la cadena.
+buscar = re.search(r'\D$', tex2)
+print(buscar)  # None
 
-buscar = re.findall(r'[^\s]+',tex) # excluye los q no son espacion en blanco
-print(buscar) # ['No', 'atendemos', 'los', 'martes', 'en', 'la', 'tarde']
-print(' '.join(buscar)) # No atendemos los martes en la tarde
+buscar = re.findall(r'[^\s]', tex)  # Excluye los caracteres que no son espacios en blanco
+print(buscar)  # ['N', 'o', 'a', 't', 'e', 'n', 'd', 'e', 'm', 'o', ...]
+
+buscar = re.findall(r'[^\s]+', tex)  # Excluye los caracteres que no son espacios en blanco, pero en grupos
+print(buscar)  # ['No', 'atendemos', 'los', 'martes', 'en', 'la', 'tarde']
+print(' '.join(buscar))  # No atendemos los martes en la tarde
+
 ```
 ### Comprimir y descomprimir archivos 
 
