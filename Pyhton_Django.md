@@ -5,6 +5,14 @@ Cd Hasta acceder a la carpeta
 > virtualenv venv    
 > .\venv\Scripts\activate    
 
+-------------------------------------------------------
+py -m venv venv     
+.\venv\Scripts\activate    
+pip install django    
+django-admin startproject "nombre_proyecto" .  # "" no ira  
+python manage.py startapp "nombre_app" # "" no ira  
+
+-------------------------------------------------------
 Abrir VisualStudioCode   
 Abrir la carpeta   
 En la terminal de la carpeta:    
@@ -15,6 +23,7 @@ Django tiene la particularidad que las funcionalides del sw se divide en "apps"
 > python manage.py startapp "nombre_app" # "" no ira      
 
 Ahora desde el proyecto principal se configurara las apps   
+
 
 **Estructura de una app**    
 *views.py* :     
