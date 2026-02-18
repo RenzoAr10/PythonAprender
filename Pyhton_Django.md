@@ -5,19 +5,11 @@ Cd Hasta acceder a la carpeta
 > virtualenv venv    
 > .\venv\Scripts\activate    
 
--------------------------------------------------------
-py -m venv venv     
-.\venv\Scripts\activate    
 pip install django    
 django-admin startproject "nombre_proyecto" .  # "" no ira  
 python manage.py startapp "nombre_app" # "" no ira  
 
 -------------------------------------------------------
-Abrir VisualStudioCode   
-Abrir la carpeta   
-En la terminal de la carpeta:    
-> pip install django     
-> django-admin startproject "nombre_proyecto" # "" no ira     
 
 Django tiene la particularidad que las funcionalides del sw se divide en "apps"   
 > python manage.py startapp "nombre_app" # "" no ira      
