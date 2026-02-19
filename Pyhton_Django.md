@@ -6,12 +6,11 @@ Cd Hasta acceder a la carpeta
 > .\venv\Scripts\activate    
 
 pip install django    
-django-admin startproject "nombre_proyecto" .  # "" no ira  
-python manage.py startapp "nombre_app" # "" no ira  
+> django-admin startproject "nombre_proyecto" .  # "" no ira  
 
--------------------------------------------------------
 
-Django tiene la particularidad que las funcionalides del sw se divide en "apps"   
+### Django tiene la particularidad que las funcionalides del sw se divide en "apps"   
+En el directorio donde esta el proyecto:
 > python manage.py startapp "nombre_app" # "" no ira      
 
 Ahora desde el proyecto principal se configurara las apps   
@@ -49,6 +48,7 @@ Cada aplicacion va guardar sus propias URLS
 ## Modelos y Bases de datos con SQLite   
 Para actualizar en DB Browser for SQlite   
 > python manage.py makemigrations
+   
 > python manage.py migrate
 
 #### En models.py de Myapp:  
