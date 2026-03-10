@@ -2,7 +2,9 @@ Crear una carpeta
 Abrir el simbolo del sistema
 Cd Hasta acceder a la carpeta
 > pip install virtualenv
-> virtualenv venv    
+      
+> virtualenv venv
+     
 > .\venv\Scripts\activate    
 
 pip install django    
