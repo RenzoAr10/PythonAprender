@@ -1,11 +1,11 @@
-# KONOMEGUA IA  
+# ITACHI IA  
 ## Código Fuente y Manual de Usuario
 
 **Versión:** 1.0.0  
 **Tipo de documento:** Código fuente + Manual de usuario  
 **Repositorio:** https://github.com/Y2605/Konomegua-Backend.git  
-**Fecha:** [Colocar fecha]  
-**Titular / Autor:** [Colocar nombre o razón social]  
+**Fecha:** 26/05/2026  
+**Titular:** CARLOS ENRIQUE CATAÑO AYBAR
 
 ---
 
@@ -23,7 +23,7 @@
 
 # 1. Presentación del software
 
-**KONOMEGUA IA** es un sistema orientado a la automatización del análisis de convocatorias públicas y licitaciones.
+**ITACHI IA** es un sistema orientado a la automatización del análisis de convocatorias públicas y licitaciones.
 
 El software permite identificar oportunidades, consultar convocatorias, procesar documentos técnicos en PDF, extraer requerimientos mediante OCR e inteligencia artificial, y organizar la información para facilitar la preparación de cotizaciones.
 
@@ -35,7 +35,7 @@ El sistema integra una API backend, procesamiento asíncrono mediante workers, e
 
 ## 2.1 Objetivo del sistema
 
-El objetivo de **KONOMEGUA IA** es permitir que el usuario consulte convocatorias, revise productos o ítems asociados, analice documentos técnicos y obtenga requerimientos relevantes para apoyar la toma de decisiones en procesos de cotización.
+El objetivo de **ITACHI IA** es permitir que el usuario consulte convocatorias, revise productos o ítems asociados, analice documentos técnicos y obtenga requerimientos relevantes para apoyar la toma de decisiones en procesos de cotización.
 
 ## 2.2 Usuarios del sistema
 
@@ -126,7 +126,7 @@ El flujo general del sistema es el siguiente:
 
 # 4. Inventario del código fuente
 
-El código fuente de **KONOMEGUA IA** se encuentra organizado en módulos. Para este documento se incluyen los archivos principales del sistema, agrupados por responsabilidad técnica.
+El código fuente de **ITACHI IA** se encuentra organizado en módulos. Para este documento se incluyen los archivos principales del sistema, agrupados por responsabilidad técnica.
 
 No se incluyen archivos sensibles, temporales o generados automáticamente.
 
@@ -159,7 +159,7 @@ No se incluyen archivos sensibles, temporales o generados automáticamente.
 
 # 5. Código fuente del sistema
 
-A continuación se incluye el código fuente principal de **KONOMEGUA IA**, organizado por archivo y ruta dentro del repositorio.
+A continuación se incluye el código fuente principal de **ITACHI IA**, organizado por archivo y ruta dentro del repositorio.
 
 > Nota: En cada sección se debe pegar el contenido real del archivo correspondiente desde el repositorio.
 
@@ -2671,5 +2671,5 @@ Archivos excluidos de este documento:
 ---
 
 
-El presente documento consolida el manual de usuario y el código fuente principal del software **KONOMEGUA IA**, preparado para fines de revisión, entrega, validación técnica o registro documental.
+El presente documento consolida el manual de usuario y el código fuente principal del software **ITACHI IA**, preparado para fines de revisión, entrega, validación técnica o registro documental.
 
